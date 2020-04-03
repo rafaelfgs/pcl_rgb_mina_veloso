@@ -1,0 +1,20 @@
+<launch>
+
+    <!-- Synchronize publications between depth and color images -->
+    <node pkg="necessary_files" type="sync_depth_to_color.py" name="sync_node" args="" output="screen"/>
+
+    <!-- Generate PointCloud2 from synchronized images -->
+    <node pkg="nodelet" type="nodelet" name="xyzrgb_node" args="standalone depth_image_proc/point_cloud_xyzrgb" output="screen"/>
+
+    <!-- Convert PointCloud2 to PointCloud -->
+    <node pkg="point_cloud_converter" type="point_cloud_converter_node" name="convert_node" args="" output="screen">
+        <remap from="/points2_in" to="/depth_registered/points"/>
+    </node>
+
+    <!-- Write PointCloud messages to .pcd file -->
+    <node pkg="necessary_files" type="pointcloud_to_pcd.py" name="pcd_node" args="" output="screen"/>
+
+    <!-- RVIZ Visualization -->
+    <node pkg="rviz" type="rviz" name="rviz_node" args="-d $(find necessary_files)/config/pointcloud2.rviz" output="screen"/>
+
+</launch>
