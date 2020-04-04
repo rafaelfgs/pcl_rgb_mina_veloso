@@ -98,8 +98,7 @@ Then, the nodes can be called through following sequence of commands:
 
 ```bash
 rosrun necessary_files sync_depth_to_color.py
-rosrun topic_tools relay /depth_registered/points /points2_in
-rosrun point_cloud_converter point_cloud_converter_node
+rosrun point_cloud_converter point_cloud_converter_node points2_in:='/depth_registered/points'
 rosrun necessary_files pointcloud_to_pcd.py
 rosbag play PATH_TO_FILE.bag
 rosrun nodelet nodelet standalone depth_image_proc/point_cloud_xyzrgb
