@@ -2,7 +2,7 @@
 
 Repository with the necessary files to generate a colored (RGB) PointCloud from bags recorded in Mina du Veloso with EspeleoRobô.
 
-The recorded bags are located in theGoogle Drive account of EspeleoRobô.
+The recorded bags are located in the Google Drive account of EspeleoRobô.
 
 The output of this repository is a .pcd file, containing the point cloud generated with the bag.
 
@@ -29,7 +29,7 @@ The main parameters of this node can be edited in the file, where:
 
 * *input_file*: represents the complete name for the input bags for merge.
 * *output_file*: represents the name for the output bag.
-* *depth_delay*: is the time delay between depth and colorimages.
+* *depth_delay*: is the time delay between depth and color images.
 
 
 ### *sync_node*
