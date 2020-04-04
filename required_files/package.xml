@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>necessary_files</name>
+  <name>required_files</name>
   <version>0.0.0</version>
-  <description>The necessary_files package</description>
+  <description>The required_files package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/necessary_files</url> -->
+  <!-- <url type="website">http://wiki.ros.org/required_files</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
