@@ -44,7 +44,7 @@ Using the corrected bag, this node republishes both color and depth images. The 
 
 ### *xyzrgb_node
 
-This node uses the synchronized messages to generate the point cloud. The file is located in *depth_image_proc/src/nodelets/point_cloud_xyzrgb.cpp*. The topic published is:
+This node uses the synchronized messages to generate the point cloud. The file is located in *depth_image_proc/src/nodelets/point_cloud_xyzrgb.cpp*, obtained from https://github.com/ros-perception/image_pipeline. The topic published is:
 
 * */depth_registered/points (sensor_msgs/PointCloud2)*
 
@@ -53,7 +53,7 @@ Note: it is necessary to play the bag before running this node.
 
 ### *convert_node*
 
-For a better view of the points' coordinates, this node is used to convert the type of message from *PointCloud2* to *PointCloud*. The file is located in *point_cloud_converter/src/converter.cpp*. The topic published is: 
+For a better view of the points' coordinates, this node is used to convert the type of message from *PointCloud2* to *PointCloud*. The file is located in *point_cloud_converter/src/converter.cpp*, obtained from https://github.com/pal-robotics-forks/point_cloud_converter. The topic published is: 
 
 * */points_out (sensor_msgs/PointCloud)*
 
