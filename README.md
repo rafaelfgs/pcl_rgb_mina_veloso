@@ -12,9 +12,9 @@ The output of this repository is a .pcd file, containing the point cloud generat
 This repository includes the following nodes:
 
 
-### *bagmerge_node*
+### *correct_node*
 
-This node is represented by the file *necessary_files/scripts/bagmerge_veloso.py*. It is used to create another bag with the correct configurations for the topics used in point cloud generation:
+This node is represented by the file *necessary_files/scripts/correct_bag_veloso.py*. It is used to create another bag with the correct configurations for the topics used in point cloud generation:
 
 * */d435i/color/camera_info (sensor_msgs/CameraInfo)*
 * */d435i/color/image_raw (sensor_msgs/Image)*
@@ -91,7 +91,7 @@ Note: *catkin build* can be replaced by *catkin_make*.
 First, it is necessary to correct the bags, running the first node with the command:
 
 ```bash
-rosrun necessary_files bagmerge_veloso.py
+rosrun necessary_files correct_bag_veloso.py
 ```
 
 Then, the nodes can be called through following sequence of commands:
@@ -105,7 +105,7 @@ rosbag play PATH_TO_FILE.bag
 rosrun nodelet nodelet standalone depth_image_proc/point_cloud_xyzrgb
 ```
 
-To simplify these command, a *.launch* file can be used for running all nodes (except for *bagmerge_node*), through the commands:
+To simplify these command, a *.launch* file can be used for running all nodes (except for *correct_bag_veloso*), through the commands:
 
 ```bash
 rosbag play PATH_TO_FILE.bag

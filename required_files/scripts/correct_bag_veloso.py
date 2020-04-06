@@ -118,7 +118,7 @@ def qv_mult(q1, v1):
 
 def main_function():
     
-    rospy.init_node('bagmerge_node', anonymous=True)
+    rospy.init_node('correct_node', anonymous=True)
     
     for k in range(len(input_file)):
         sys.stdout.write('\n%s' % input_file[k])
