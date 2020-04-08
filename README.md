@@ -2,7 +2,7 @@
 
 Repository with the necessary files to generate a colored (RGB) PointCloud from bags recorded in Mina du Veloso with EspeleoRobô.
 
-The recorded bags are located in the Google Drive account of EspeleoRobô.
+The recorded bags were recorded on February 2020 and are located in the Google Drive account of EspeleoRobô.
 
 The output of this repository is a .pcd file, containing the point cloud generated with the bag.
 
@@ -14,7 +14,7 @@ This repository includes the following nodes:
 
 ### *correct_node*
 
-This node is represented by the file *necessary_files/scripts/correct_bag_veloso.py*. It is used to create another bag with the correct configurations for the topics used in point cloud generation:
+This node is represented by the file *required_files/scripts/correct_bag_veloso.py*. It is used to create another bag with the correct configurations for the topics used in point cloud generation:
 
 * */d435i/color/camera_info (sensor_msgs/CameraInfo)*
 * */d435i/color/image_raw (sensor_msgs/Image)*
@@ -34,7 +34,7 @@ The main parameters of this node can be edited in the file, where:
 
 ### *sync_node*
 
-Using the corrected bag, this node republishes both color and depth images. The file is located in *necessary_files/scripts/sync_depth_to_color.py*. It synchronizes the messages, keeping a specific publication rate, fixes a range for depth message, and makes others general corrections. The topics published for this node are:
+Using the corrected bag, this node republishes both color and depth images. The file is located in *required_files/scripts/sync_depth_to_color.py*. It synchronizes the messages, keeping a specific publication rate, fixes a range for depth message, and makes others general corrections. The topics published for this node are:
 
 * */depth_registered/image_rect (sensor_msgs/CameraInfo)*
 * */depth_registered/camera_info (sensor_msgs/Image)*
@@ -60,7 +60,7 @@ For a better view of the points' coordinates, this node is used to convert the t
 
 ### *pcd_node*
 
-The final node is used to create a *.pcd* file using the point cloud from the last node. The file contains the points' coordinates and their respective values of RGB color. Each line in the file represents a point in the form *[x, y, z, rgb]*. This node is located in *necessary_files/scripts/pointcloud_to_pcd.py*.
+The final node is used to create a *.pcd* file using the point cloud from the last node. The file contains the points' coordinates and their respective values of RGB color. Each line in the file represents a point in the form *[x, y, z, rgb]*. This node is located in *required_files/scripts/pointcloud_to_pcd.py*.
 
 The main parameter is:
 
@@ -69,7 +69,7 @@ The main parameter is:
 
 ### *rviz_node*
 
-Finally, for visualization of the whole process, this node open RViz with a correct configuration for topics and view.
+Finally, for visualization of the whole process, this node opens RViz with a correct configuration for topics and view.
 
 
 ## Building
@@ -77,7 +77,7 @@ Finally, for visualization of the whole process, this node open RViz with a corr
 The commands for built the package are simple:
 
 ```bash
-git clone https://github.com/rafaelfgs/imu_turtle.git
+git clone https://github.com/rafaelfgs/pcl_rgb_mina_veloso.git
 cd ..
 catkin build
 source devel/setup.bash
@@ -91,15 +91,15 @@ Note: *catkin build* can be replaced by *catkin_make*.
 First, it is necessary to correct the bags, running the first node with the command:
 
 ```bash
-rosrun necessary_files correct_bag_veloso.py
+rosrun required_files correct_bag_veloso.py
 ```
 
 Then, the nodes can be called through following sequence of commands:
 
 ```bash
-rosrun necessary_files sync_depth_to_color.py
+rosrun required_files sync_depth_to_color.py
 rosrun point_cloud_converter point_cloud_converter_node points2_in:='/depth_registered/points'
-rosrun necessary_files pointcloud_to_pcd.py
+rosrun required_files pointcloud_to_pcd.py
 rosbag play PATH_TO_FILE.bag
 rosrun nodelet nodelet standalone depth_image_proc/point_cloud_xyzrgb
 ```
@@ -108,5 +108,5 @@ To simplify these command, a *.launch* file can be used for running all nodes (e
 
 ```bash
 rosbag play PATH_TO_FILE.bag
-roslaunch necessary_files pcd_rgb_mina_veloso.launch 
+roslaunch required_files pcd_rgb_mina_veloso.launch 
 ```

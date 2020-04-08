@@ -195,16 +195,16 @@ def main_function():
             if topic == '/d435i/color/camera_info':
                 bag_out.write(topic, msg, t)
                 
-            if topic == '/d435i/color/image_raw':
+            elif topic == '/d435i/color/image_raw':
                 bag_out.write(topic, msg, t)
                 
-            if topic == '/d435i/depth/camera_info':
+            elif topic == '/d435i/depth/camera_info':
                 t_new = rospy.Time.to_sec(t)-depth_shift_time
                 if t_new >= bag_start_time:
                     msg.header.stamp = rospy.Time.from_sec(t_new)
                 bag_out.write(topic, msg, msg.header.stamp)
                 
-            if topic == '/d435i/depth/image_rect_raw':
+            elif topic == '/d435i/depth/image_rect_raw':
                 t_new = rospy.Time.to_sec(t)-depth_shift_time
                 if t_new >= bag_start_time:
                     msg.header.stamp = rospy.Time.from_sec(t_new)
@@ -234,7 +234,7 @@ def main_function():
 #            if topic == '/os1_cloud_node/points':
 #                bag_out.write(topic, msg, t)
             
-            if topic == '/t265/odom/sample':
+            elif topic == '/t265/odom/sample':
                 topic = '/t265/odom'
                 msg.header.frame_id = 't265_init'
                 msg.child_frame_id = 't265_pose'

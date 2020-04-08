@@ -15,6 +15,6 @@
     <node pkg="necessary_files" type="pointcloud_to_pcd.py" name="pcd_node" args="" output="screen"/>
 
     <!-- RVIZ Visualization -->
-    <node pkg="rviz" type="rviz" name="rviz_node" args="-d $(find necessary_files)/config/pointcloud2.rviz" output="screen"/>
+    <node pkg="rviz" type="rviz" name="rviz_node" args="-d $(find necessary_files)/config/rviz.rviz" output="screen"/>
 
 </launch>
