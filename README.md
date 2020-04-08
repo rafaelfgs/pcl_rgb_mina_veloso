@@ -1,6 +1,6 @@
 # pcl_rgb_mina_veloso
 
-Repository with the necessary files to generate a colored (RGB) PointCloud from bags recorded in Mina du Veloso with EspeleoRobô.
+Repository with the necessary files to generate a colored PointCloud from bags recorded in Mina du Veloso with EspeleoRobô.
 
 The recorded bags are located in the Google Drive account of EspeleoRobô.
 
