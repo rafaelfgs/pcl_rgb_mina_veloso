@@ -31,6 +31,8 @@ The main parameters of this node can be edited in the file, where:
 * *output_file*: represents the name for the output bag.
 * *depth_delay*: is the time delay between depth and color images.
 
+Note: this node can be run outside ROS.
+
 
 ### *sync_node*
 
